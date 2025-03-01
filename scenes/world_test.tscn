@@ -1,0 +1,371 @@
+[gd_scene load_steps=25 format=3 uid="uid://dumanc85p6k1c"]
+
+[ext_resource type="Texture2D" uid="uid://hl44tr5n11us" path="res://assets/sprites/old-snek/Run Snake 1.png" id="1_7mhm3"]
+[ext_resource type="Script" uid="uid://dy4wt5qavog5q" path="res://scenes/world_test.gd" id="1_puv4i"]
+[ext_resource type="Texture2D" uid="uid://cpte3pe5u5vvd" path="res://assets/sprites/old-snek/FULL SNEK.png" id="3_1moov"]
+[ext_resource type="Texture2D" uid="uid://buxgm4tyopd0q" path="res://assets/sprites/old-box/1.png" id="4_63fu1"]
+[ext_resource type="Script" uid="uid://c7nly3rwxnidr" path="res://scenes/ball_character.gd" id="5_ob026"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puv4i"]
+atlas = ExtResource("1_7mhm3")
+region = Rect2(540, 0, 45, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1moov"]
+atlas = ExtResource("1_7mhm3")
+region = Rect2(585, 0, 45, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63fu1"]
+atlas = ExtResource("1_7mhm3")
+region = Rect2(630, 0, 45, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob026"]
+atlas = ExtResource("1_7mhm3")
+region = Rect2(675, 0, 45, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lv6h"]
+atlas = ExtResource("1_7mhm3")
+region = Rect2(720, 0, 45, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6uhy"]
+atlas = ExtResource("1_7mhm3")
+region = Rect2(765, 0, 45, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voen0"]
+atlas = ExtResource("1_7mhm3")
+region = Rect2(810, 0, 45, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bo10"]
+atlas = ExtResource("1_7mhm3")
+region = Rect2(855, 0, 45, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d357a"]
+atlas = ExtResource("1_7mhm3")
+region = Rect2(900, 0, 45, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6qtqi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puv4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1moov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63fu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob026")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lv6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6uhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voen0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bo10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d357a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mhm3"]
+
+[sub_resource type="Sky" id="Sky_ob026"]
+sky_material = SubResource("ProceduralSkyMaterial_7mhm3")
+
+[sub_resource type="Environment" id="Environment_7mhm3"]
+background_mode = 2
+sky = SubResource("Sky_ob026")
+
+[sub_resource type="BoxMesh" id="BoxMesh_puv4i"]
+size = Vector3(0.5, 5, 0.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7mhm3"]
+size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ob026"]
+size = Vector3(50, 0.05, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63fu1"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="SphereMesh" id="SphereMesh_63fu1"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ob026"]
+radius = 0.25
+
+[node name="WorldTest" type="Node3D"]
+script = ExtResource("1_puv4i")
+
+[node name="SnekAnim" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54983, 0.137163, 1.64659)
+pixel_size = 0.074
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_6qtqi")
+autoplay = "default"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7mhm3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98585, 2.28041, 0)
+mesh = SubResource("BoxMesh_puv4i")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149623, 0, -0.513667)
+mesh = SubResource("BoxMesh_puv4i")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.556367, 0, 0.568707)
+mesh = SubResource("BoxMesh_puv4i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.244781, 0)
+
+[node name="Piso" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_7mhm3")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ob026")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22761, 4.56326)
+light_color = Color(1, 0.803922, 0.509804, 1)
+light_specular = 3.0
+shadow_enabled = true
+
+[node name="SnekFull" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74304, 3.51446, 0.528768)
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("3_1moov")
+
+[node name="Box" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00417, 0.867931, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box8" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57919, 0.867931, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box8"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box9" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33213, 0.867931, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box9"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71574, 0.867931, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box2"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13271, 0.867931, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box3"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box5" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.08513, 0.867931, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box5"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box6" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.62026, 1.40664, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box6"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box7" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.63363, 1.4058, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box7"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box11" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25227, 1.4058, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box11"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box10" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65538, 1.82774, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box10"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box4" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15178, 1.43847, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box4"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box12" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15178, 1.87056, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box12"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box13" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.56835, 1.87056, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box13"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="Box14" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08508, 2.36672, 3.90335)
+
+[node name="Boxtest" type="Sprite3D" parent="Box14"]
+shaded = true
+alpha_cut = 1
+texture_filter = 2
+texture = ExtResource("4_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117188, -0.438717, 0)
+shape = SubResource("BoxShape3D_63fu1")
+
+[node name="BallCharacter" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13833, 1.03338, 9.27713)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("5_ob026")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BallCharacter"]
+mesh = SubResource("SphereMesh_63fu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BallCharacter"]
+shape = SubResource("SphereShape3D_ob026")
+
+[node name="Camera3D" type="Camera3D" parent="BallCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.802733, 3.65488)
+keep_aspect = 0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 895.0
+offset_top = 523.0
+offset_right = 1118.0
+offset_bottom = 616.0
+text = "NEXT"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
