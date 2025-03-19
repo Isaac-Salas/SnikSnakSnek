@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://3qlvse3116tw"]
+
+[ext_resource type="PackedScene" uid="uid://gexeva3rjdvv" path="res://player/SnakePlayer.tscn" id="1_e228u"]
+[ext_resource type="ArrayMesh" uid="uid://ci5vocxp4u5yk" path="res://assets/models/Forest/model.obj" id="2_spdx3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spdx3"]
+albedo_color = Color(0.37, 0.0925, 0.0925, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_spdx3"]
+size = Vector2(300, 300)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_puwen"]
+size = Vector3(300, 0.08, 300)
+
+[sub_resource type="Gradient" id="Gradient_spdx3"]
+colors = PackedColorArray(0, 0.05, 0.00583334, 1, 1, 0.893333, 0.8, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_puwen"]
+gradient = SubResource("Gradient_spdx3")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e228u"]
+
+[sub_resource type="Sky" id="Sky_puv4i"]
+sky_material = SubResource("ProceduralSkyMaterial_e228u")
+
+[sub_resource type="Environment" id="Environment_spdx3"]
+background_mode = 2
+sky = SubResource("Sky_puv4i")
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture2D_puwen")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Snake" parent="." instance=ExtResource("1_e228u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35849, 0.0368171, -0.503796)
+
+[node name="Camera3D" type="Camera3D" parent="Snake"]
+transform = Transform3D(1, 0, 0, 0, 0.999937, 0.0111873, 0, -0.0111873, 0.999937, 0, 1.36817, 6.02913)
+fov = 126.563
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_spdx3")
+mesh = SubResource("PlaneMesh_spdx3")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_puwen")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_spdx3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.765438, 0.643509, 0, -0.643509, -0.765438, 0, 2.22761, 4.56326)
+light_color = Color(1, 0.803922, 0.509804, 1)
+light_volumetric_fog_energy = 3.0
+light_specular = 5.0
+shadow_enabled = true
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -9.27596, -0.0811625, -25.1467)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model2" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 16.2498, -0.0811625, -25.1467)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model3" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -27.4561, -0.0811625, -25.1467)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model4" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -27.4561, -0.0811625, -16.3109)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model5" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.475891, -0.0811625, -16.3109)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model6" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 17.4003, -0.0811625, -16.3109)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model7" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 61.5063, -0.0811625, -25.1467)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model8" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 87.0321, -0.0811625, -25.1467)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model9" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 43.3262, -0.0811625, -25.1467)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model10" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 43.3262, -0.0811625, -16.3109)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model11" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 70.3064, -0.0811625, -16.3109)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model12" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 88.1825, -0.0811625, -16.3109)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model13" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -79.5588, -0.0811625, -25.1467)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model14" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -54.033, -0.0811625, -25.1467)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model15" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -97.739, -0.0811625, -25.1467)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model16" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -97.739, -0.0811625, -16.3109)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model17" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -70.7588, -0.0811625, -16.3109)
+mesh = ExtResource("2_spdx3")
+
+[node name="Model18" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -52.8826, -0.0811625, -16.3109)
+mesh = ExtResource("2_spdx3")

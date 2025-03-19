@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://dumanc85p6k1c"]
+[gd_scene load_steps=26 format=3 uid="uid://dumanc85p6k1c"]
 
 [ext_resource type="Texture2D" uid="uid://hl44tr5n11us" path="res://assets/sprites/old-snek/Run Snake 1.png" id="1_7mhm3"]
 [ext_resource type="Script" uid="uid://dy4wt5qavog5q" path="res://scenes/world_test.gd" id="1_puv4i"]
 [ext_resource type="Texture2D" uid="uid://cpte3pe5u5vvd" path="res://assets/sprites/old-snek/FULL SNEK.png" id="3_1moov"]
 [ext_resource type="Texture2D" uid="uid://buxgm4tyopd0q" path="res://assets/sprites/old-box/1.png" id="4_63fu1"]
 [ext_resource type="Script" uid="uid://c7nly3rwxnidr" path="res://scenes/ball_character.gd" id="5_ob026"]
+[ext_resource type="PackedScene" uid="uid://b0x1yf58teq3u" path="res://player/Player_cam.tscn" id="6_4lv6h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_puv4i"]
 atlas = ExtResource("1_7mhm3")
@@ -350,10 +351,6 @@ mesh = SubResource("SphereMesh_63fu1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BallCharacter"]
 shape = SubResource("SphereShape3D_ob026")
 
-[node name="Camera3D" type="Camera3D" parent="BallCharacter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.802733, 3.65488)
-keep_aspect = 0
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -367,5 +364,10 @@ offset_top = 523.0
 offset_right = 1118.0
 offset_bottom = 616.0
 text = "NEXT"
+
+[node name="PlayerCam" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("6_4lv6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14271, 1.82944, 10.8429)
+follow_target = NodePath("../BallCharacter")
+follow_offset = Vector3(1.14271, 1.82944, 10.8429)
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

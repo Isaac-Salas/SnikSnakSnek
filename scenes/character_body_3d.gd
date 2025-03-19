@@ -1,7 +1,8 @@
 extends CharacterBody3D
-
+class_name SnakePlayer
 @onready var ANIMATION: AnimatedSprite3D = $AnimatedSprite3D
 
+var Snakes = 1
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var running = false
@@ -46,6 +47,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			if MOMENTUM > 0.1 :
 				MOMENTUM -= 0.1
+				
 			velocity.x = direction.x * (SPEED+MOMENTUM)
 			#velocity.z = direction.z * SPEED+MOMENTUM/2
 			
