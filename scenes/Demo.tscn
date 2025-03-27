@@ -36,6 +36,8 @@ adjustment_color_correction = SubResource("GradientTexture2D_puwen")
 
 [node name="Snake" parent="." instance=ExtResource("1_e228u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35849, 0.0368171, -0.503796)
+max_momentum = 50.0
+momentum_step = 0.5
 
 [node name="Camera3D" type="Camera3D" parent="Snake"]
 transform = Transform3D(1, 0, 0, 0, 0.999937, 0.0111873, 0, -0.0111873, 0.999937, 0, 1.36817, 6.02913)
